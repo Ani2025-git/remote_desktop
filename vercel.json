@@ -1,12 +1,17 @@
-{
-  "version": 2,
+"version": 2,
   "builds": [
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
     {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
       }
+      "source": "/((?!assets/|.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|json|wasm)).*)",
+      "destination": "/index.html"
     }
   ],
   "routes": [
